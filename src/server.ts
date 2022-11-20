@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require ('express');
 const routes = require('./routes/api.route');
 const jsonwebtoken = require("jsonwebtoken");
@@ -5,7 +6,6 @@ const jsonwebtoken = require("jsonwebtoken");
 const app = express();
 
 app.use(express.json());
-
 app.use('/', routes);
 
 const listener = app.listen(process.env.PORT || 3000, () => {
