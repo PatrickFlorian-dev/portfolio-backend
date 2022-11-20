@@ -6,6 +6,7 @@ const apiController = require('../controllers/api.controller');
 const authController = require('../controllers/auth.controller'); 
 
 // Auth routes
+router.post('/auth/login', authController.login); 
 router.post('/auth/super-secure-resource', authController.superSecureResource); 
 
 // Standard routes without params

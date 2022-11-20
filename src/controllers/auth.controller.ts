@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
+const jsonwebtoken = require("jsonwebtoken");
 
-const superSecureResource = ( req: Request, res: Response ) => {
+const login = ( req: Request, res: Response ) => {
     const { username, password } = req.body;
     console.log(`${username} is trying to login ..`);
 
@@ -11,10 +12,17 @@ const superSecureResource = ( req: Request, res: Response ) => {
     }
     res
     .status(401)
+    .json({message: "Username and/or password are incorrect"});
+};
+
+const superSecureResource = ( req: Request, res: Response ) => {
+    res
+    .status(401)
     .json({message: "You need to be logged in to see this..."});
 };
 
 module.exports = { 
+    login,
     superSecureResource
 };
 

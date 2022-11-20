@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require ('express');
 const routes = require('./routes/api.route');
-const jsonwebtoken = require("jsonwebtoken");
 
 const app = express();
 
